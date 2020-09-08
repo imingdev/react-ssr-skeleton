@@ -11,9 +11,10 @@ module.exports = class ClientPagesManifestPlugin {
 
   hookCallback(compilation) {
     const pages = {}
+    const publicPath = compilation.options.output.publicPath
 
     for (const entryPoint of compilation.entrypoints.values()) {
-      const files = entryPoint.getFiles().map(formatFilePath)
+      const files = entryPoint.getFiles().map(file => `${publicPath}${formatFilePath(file)}`)
       const js = files.filter(row => /\.js$/.test(row))
       const css = files.filter(row => /\.css$/.test(row))
 
