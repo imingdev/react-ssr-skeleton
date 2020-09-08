@@ -33,6 +33,7 @@ exports.cssLoaders = (sourceMap) => {
         options: {...loaderOptions, sourceMap},
       });
     }
+    if (isServer) return loaders
 
     return [MiniCssExtractPlugin.loader].concat(loaders);
   }
@@ -49,7 +50,7 @@ exports.cssLoaders = (sourceMap) => {
   };
 };
 
-exports.moduleRules = () => [[FILE_IMAGE_RULES], [FILE_MEDIA_RULES], [FILE_FONT_RULES]].map(regArr => ({
+exports.assetsLoaders = () => [FILE_IMAGE_RULES, FILE_MEDIA_RULES, FILE_FONT_RULES].map(regArr => ({
   test: new RegExp(`\\.(${regArr.join('|')})$`),
   loader: isServer ? 'ignore-loader' : 'url-loader',
   options: {

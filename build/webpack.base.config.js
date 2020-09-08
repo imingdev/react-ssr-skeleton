@@ -4,7 +4,7 @@
 const path = require('path');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const DotEnvWebpackPlugin = require('dotenv-webpack');
-const {styleLoaders, moduleRules} = require('./utils');
+const {styleLoaders, assetsLoaders} = require('./utils');
 const {CLIENT_DIRECTORY, SERVER_DIRECTORY} = require('./constants');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -16,12 +16,12 @@ module.exports = {
   mode: NODE_ENV,
   context: resolve('/'),
   output: {
-    publicPath: '/'
+    publicPath: 'https://www.mingdev.com/'
   },
   module: {
     rules: [
       ...styleLoaders(!isProduction),
-      ...moduleRules(),
+      ...assetsLoaders(),
       ...[{
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
