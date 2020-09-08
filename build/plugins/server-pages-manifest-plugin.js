@@ -1,8 +1,8 @@
 /**
  * @intro: 服务端页面插件.
  */
-const {formatFilePath, formatEntryName, formatOutputAssets} = require('../utils')
-const {SERVER_PAGES_MANIFEST} = require('../constants')
+const {formatFilePath, formatEntryName, formatOutputAssets} = require('../utils');
+const {SERVER_PAGES_MANIFEST} = require('../constants');
 
 module.exports = class ServerBuildManifestPlugin {
   apply(compiler) {
@@ -10,14 +10,14 @@ module.exports = class ServerBuildManifestPlugin {
   }
 
   hookCallback(compilation) {
-    const pages = {}
+    const pages = {};
 
     for (const entryPoint of compilation.entrypoints.values()) {
-      const path = formatFilePath(entryPoint.getFiles().filter(row => /\.js$/.test(row))[0])
+      const name = formatEntryName(entryPoint.name);
 
-      pages[formatEntryName(entryPoint.name)] = path
+      pages[name] = formatFilePath(entryPoint.getFiles().filter(row => /\.js$/.test(row))[0]);
     }
 
-    compilation.assets[SERVER_PAGES_MANIFEST] = formatOutputAssets(pages)
+    compilation.assets[SERVER_PAGES_MANIFEST] = formatOutputAssets(pages);
   }
-}
+};

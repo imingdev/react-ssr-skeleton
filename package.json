@@ -6,7 +6,8 @@
     "build:client": "node_modules/.bin/webpack --inline --progress --config build/webpack.client.config.js",
     "build:server": "node_modules/.bin/webpack --inline --progress --config build/webpack.server.config.js",
     "build:prod": "cross-env NODE_ENV=production npm run build:client && cross-env NODE_ENV=production npm run build:server",
-    "build:dev": "cross-env NODE_ENV=development npm run build:client && cross-env NODE_ENV=development npm run build:server"
+    "build:dev": "cross-env NODE_ENV=development npm run build:client && cross-env NODE_ENV=development npm run build:server",
+    "start": "node ./server/server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

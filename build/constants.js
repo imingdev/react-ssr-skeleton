@@ -21,7 +21,7 @@ exports.PAGES_DIRECTORY = 'pages';
 // 页面清单
 exports.SERVER_PAGES_MANIFEST = 'server-pages-manifest.json';
 // 构建的资源清单
-exports.CLIENT_BUILD_MANIFEST = `${exports.SERVER_DIRECTORY}/client-build-manifest.json`;
+exports.CLIENT_BUILD_MANIFEST = 'client-build-manifest.json';
 // glob匹配参数
 exports.GLOB_PAGES_PATTERN = `${exports.CLIENT_DIRECTORY}/${exports.PAGES_DIRECTORY}/**/index.{js,jsx}`;
 // 两个默认页面

@@ -1,8 +1,8 @@
 /**
  * @intro: 客户端页面构建资源插件.
  */
-const {formatFilePath, formatEntryName, formatOutputAssets} = require('../utils')
-const {CLIENT_BUILD_MANIFEST} = require('../constants')
+const {formatFilePath, formatEntryName, formatOutputAssets} = require('../utils');
+const {CLIENT_BUILD_MANIFEST, SERVER_DIRECTORY} = require('../constants');
 
 module.exports = class ClientPagesManifestPlugin {
   apply(compiler) {
@@ -10,13 +10,13 @@ module.exports = class ClientPagesManifestPlugin {
   }
 
   hookCallback(compilation) {
-    const pages = {}
-    const publicPath = compilation.options.output.publicPath
+    const pages = {};
+    const publicPath = compilation.options.output.publicPath;
 
     for (const entryPoint of compilation.entrypoints.values()) {
-      const files = entryPoint.getFiles().map(file => `${publicPath}${formatFilePath(file)}`)
-      const js = files.filter(row => /\.js$/.test(row))
-      const css = files.filter(row => /\.css$/.test(row))
+      const files = entryPoint.getFiles().map(file => `${publicPath}${formatFilePath(file)}`);
+      const js = files.filter(row => /\.js$/.test(row));
+      const css = files.filter(row => /\.css$/.test(row));
 
       pages[formatEntryName(entryPoint.name)] = {
         js,
@@ -24,6 +24,6 @@ module.exports = class ClientPagesManifestPlugin {
       }
     }
 
-    compilation.assets[CLIENT_BUILD_MANIFEST] = formatOutputAssets(pages)
+    compilation.assets[`${SERVER_DIRECTORY}/${CLIENT_BUILD_MANIFEST}`] = formatOutputAssets(pages);
   }
-}
+};

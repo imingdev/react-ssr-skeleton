@@ -1,7 +1,7 @@
 /**
  * @intro: 客户端打包配置.
  */
-process.env.BUILD_ENV = 'client'
+process.env.BUILD_ENV = 'client';
 
 const path = require('path');
 const merge = require('webpack-merge').default;
@@ -35,6 +35,6 @@ const webpackConfig = merge(webpackBaseConfig, {
       chunkFilename: utils.assetsPath('css/[contenthash:8].css')
     })
   ]
-})
+});
 
-module.exports = webpackConfig
+module.exports = webpackConfig;

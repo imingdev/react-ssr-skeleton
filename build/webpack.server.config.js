@@ -1,7 +1,7 @@
 /**
  * @intro: 服务端打包配置.
  */
-process.env.BUILD_ENV = 'server'
+process.env.BUILD_ENV = 'server';
 
 const path = require('path');
 const merge = require('webpack-merge').default;
@@ -32,6 +32,6 @@ const webpackConfig = merge(webpackBaseConfig, {
   plugins: [
     new ServerPagesManifestPlugin()
   ]
-})
+});
 
-module.exports = webpackConfig
+module.exports = webpackConfig;
