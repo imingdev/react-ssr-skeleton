@@ -1,6 +1,8 @@
 /**
  * @intro: 服务端打包配置.
  */
+process.env.BUILD_ENV = 'server'
+
 const path = require('path');
 const merge = require('webpack-merge').default;
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');

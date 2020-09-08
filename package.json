@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "author": "mingdev <mingdev@163.com>",
   "scripts": {
-    "build:client": "cross-env BUILD_ENV=client node_modules/.bin/webpack --inline --progress --config build/webpack.client.config.js",
-    "build:server": "cross-env BUILD_ENV=server node_modules/.bin/webpack --inline --progress --config build/webpack.server.config.js",
+    "build:client": "node_modules/.bin/webpack --inline --progress --config build/webpack.client.config.js",
+    "build:server": "node_modules/.bin/webpack --inline --progress --config build/webpack.server.config.js",
     "build:prod": "cross-env NODE_ENV=production npm run build:client && cross-env NODE_ENV=production npm run build:server",
     "build:dev": "cross-env NODE_ENV=development npm run build:client && cross-env NODE_ENV=development npm run build:server"
   },
@@ -33,7 +33,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dynamic-entry-plugin": "^1.0.3",
     "webpack-merge": "^5.1.3",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-node-externals": "^2.5.2",
+    "webpackbar": "^4.0.0"
   },
   "dependencies": {
     "cross-env": "^7.0.2",

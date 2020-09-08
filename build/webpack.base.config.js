@@ -16,7 +16,7 @@ module.exports = {
   mode: NODE_ENV,
   context: resolve('/'),
   output: {
-    publicPath: 'https://www.mingdev.com/'
+    publicPath: '/'
   },
   module: {
     rules: [

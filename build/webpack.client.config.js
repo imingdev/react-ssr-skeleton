@@ -1,6 +1,8 @@
 /**
  * @intro: 客户端打包配置.
  */
+process.env.BUILD_ENV = 'client'
+
 const path = require('path');
 const merge = require('webpack-merge').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
