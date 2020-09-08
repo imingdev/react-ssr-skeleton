@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "author": "mingdev <mingdev@163.com>",
   "scripts": {
-    "prebuild:client": "cross-env BUILD_ENV=client",
-    "prebuild:server": "cross-env BUILD_ENV=server",
-    "build:client": "node_modules/.bin/webpack --inline --progress --config build/webpack.client.config.js",
-    "build:server": "node_modules/.bin/webpack --inline --progress --config build/webpack.server.config.js",
+    "build:client": "cross-env BUILD_ENV=client node_modules/.bin/webpack --inline --progress --config build/webpack.client.config.js",
+    "build:server": "cross-env BUILD_ENV=server node_modules/.bin/webpack --inline --progress --config build/webpack.server.config.js",
     "build:prod": "cross-env NODE_ENV=production npm run build:client && cross-env NODE_ENV=production npm run build:server",
     "build:dev": "cross-env NODE_ENV=development npm run build:client && cross-env NODE_ENV=development npm run build:server"
   },
