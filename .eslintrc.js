@@ -12,6 +12,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'comma-dangle': ['error', 'never'],
     'react/prop-types': 0,
-    'react/jsx-props-no-spreading': 'off'
+    'react/jsx-props-no-spreading': 'off',
+    'jsx-a11y/html-has-lang': 'off'
   }
 };

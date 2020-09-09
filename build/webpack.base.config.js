@@ -28,8 +28,13 @@ const webpackConfig = {
       ...assetsLoaders(),
       ...[{
         test: /\.(js|jsx)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve(CLIENT_DIRECTORY), resolve(SERVER_DIRECTORY)]
+      }, {
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        include: [resolve(CLIENT_DIRECTORY), resolve(SERVER_DIRECTORY)],
+        include: [resolve(CLIENT_DIRECTORY), resolve(SERVER_DIRECTORY)]
       }]
     ]
   },

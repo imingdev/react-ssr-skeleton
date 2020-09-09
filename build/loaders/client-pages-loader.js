@@ -4,21 +4,16 @@
 const loaderUtils = require('loader-utils');
 const {formatFilePath} = require('../utils');
 
-module.exports = function (source) {
+module.exports = function () {
   const {main} = loaderUtils.getOptions(this);
   const {resourcePath} = this;
   const formatResPath = formatFilePath(resourcePath);
   const formatMainPath = formatFilePath(main);
 
-  const mainKey = `AppMain_${Date.now()}`;
-  const pageKey = `AppPage_${Date.now()}`;
-
   return `
-    import ${mainKey} from '${formatMainPath}';
-    import ${pageKey} from '${formatResPath}';
+    import AppMain from '${formatMainPath}';
+    import AppPage from '${formatResPath}';
 
-    ${source}
-
-    ${mainKey}(${pageKey});
+    AppMain(AppPage);
   `
 };

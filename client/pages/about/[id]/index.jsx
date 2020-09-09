@@ -1,3 +1,8 @@
-import React from "react";
+import React from 'react';
 
-export default ({nihao}) => (<div className="aboutPage">[id] {nihao}</div>)
+export default ({ nihao }) => (
+  <div className="aboutPage">
+    [id]
+    {nihao}
+  </div>
+);
