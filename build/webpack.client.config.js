@@ -7,10 +7,15 @@ const path = require('path');
 const merge = require('webpack-merge').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const {GLOB_PAGES_PATTERN, CLIENT_BUILD_OUTPUT, CLIENT_MAIN_DIRECTORY} = require('./constants');
 const webpackBaseConfig = require('./webpack.base.config');
 const ClientBuildManifestPlugin = require('./plugins/client-build-manifest-plugin');
-const utils = require('./utils')
+const utils = require('./utils');
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+const isProduction = NODE_ENV === 'production';
 
 const resolve = (dir) => path.join(__dirname, '..', dir);
 
@@ -36,5 +41,17 @@ const webpackConfig = merge(webpackBaseConfig, {
     })
   ]
 });
+
+if (isProduction) {
+  const optimization = webpackConfig.optimization || {};
+  const minimizer = optimization.minimizer || [];
+  minimizer.push(
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: {safe: true}
+    })
+  );
+  optimization.minimizer = minimizer;
+  webpackConfig.optimization = optimization;
+}
 
 module.exports = webpackConfig;

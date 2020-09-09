@@ -8,18 +8,20 @@ const isServer = BUILD_ENV === 'server';
 
 exports.assetsPath = _path => path.posix.join(CLIENT_STATIC_FILES_PATH, _path);
 
-exports.cssLoaders = (sourceMap) => {
+exports.cssLoaders = (options) => {
+  options = options || {};
+
   const cssLoader = {
     loader: 'css-loader',
     options: {
-      sourceMap,
+      sourceMap: options.sourceMap
     },
   };
 
   const postcssLoader = {
     loader: 'postcss-loader',
     options: {
-      sourceMap,
+      sourceMap: options.sourceMap
     },
   };
 
@@ -30,12 +32,12 @@ exports.cssLoaders = (sourceMap) => {
     if (loader) {
       loaders.push({
         loader: `${loader}-loader`,
-        options: {...loaderOptions, sourceMap},
+        options: {...loaderOptions, sourceMap: options.sourceMap}
       });
     }
-    if (isServer) return loaders;
+    if (options.extract) return [MiniCssExtractPlugin.loader].concat(loaders);
 
-    return [MiniCssExtractPlugin.loader].concat(loaders);
+    return loaders;
   };
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
@@ -61,9 +63,9 @@ exports.assetsLoaders = () => [FILE_IMAGE_RULES, FILE_MEDIA_RULES, FILE_FONT_RUL
 }));
 
 // Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = (sourceMap) => {
+exports.styleLoaders = (options) => {
   const output = [];
-  const loaders = exports.cssLoaders(sourceMap);
+  const loaders = exports.cssLoaders(options);
 
   for (const extension in loaders) {
     const loader = loaders[extension];

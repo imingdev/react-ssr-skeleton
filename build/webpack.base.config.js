@@ -4,15 +4,19 @@
 const path = require('path');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const DotEnvWebpackPlugin = require('dotenv-webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const {styleLoaders, assetsLoaders} = require('./utils');
 const {CLIENT_DIRECTORY, SERVER_DIRECTORY} = require('./constants');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
+const BUILD_ENV = process.env.BUILD_ENV;
+
+const isClient = BUILD_ENV === 'client';
 const isProduction = NODE_ENV === 'production';
 
 const resolve = (dir) => path.join(__dirname, '..', dir);
 
-module.exports = {
+const webpackConfig = {
   mode: NODE_ENV,
   context: resolve('/'),
   output: {
@@ -20,7 +24,7 @@ module.exports = {
   },
   module: {
     rules: [
-      ...styleLoaders(!isProduction),
+      ...styleLoaders({sourceMap: !isProduction, extract: isClient}),
       ...assetsLoaders(),
       ...[{
         test: /\.(js|jsx)$/,
@@ -72,3 +76,27 @@ module.exports = {
     child_process: 'empty',
   },
 };
+
+if (isProduction) {
+  const optimization = webpackConfig.optimization || {};
+  const minimizer = optimization.minimizer || [];
+  minimizer.push(
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        output: {
+          comments: false
+        },
+        compress: {
+          drop_debugger: true,
+          drop_console: true
+        },
+      },
+      sourceMap: false,
+      parallel: true
+    })
+  );
+  optimization.minimizer = minimizer;
+  webpackConfig.optimization = optimization;
+}
+
+module.exports = webpackConfig;
