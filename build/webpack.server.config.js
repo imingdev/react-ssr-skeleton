@@ -6,7 +6,7 @@ process.env.BUILD_ENV = 'server';
 const path = require('path');
 const merge = require('webpack-merge').default;
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
-const {CLIENT_DIRECTORY, PAGES_DIRECTORY, BLOCKED_PAGES, GLOB_PAGES_PATTERN} = require('./constants');
+const {CLIENT_DIRECTORY, PAGES_DIRECTORY, BLOCKED_PAGES, GLOB_PAGES_PATTERN, SERVER_BUILD_OUTPUT} = require('./constants');
 const webpackBaseConfig = require('./webpack.base.config');
 const WebpackNodeExternals = require('webpack-node-externals');
 const ServerPagesManifestPlugin = require('./plugins/server-pages-manifest-plugin');
@@ -23,7 +23,7 @@ const webpackConfig = merge(webpackBaseConfig, {
     (name, file) => ({name: `${PAGES_DIRECTORY}/${name}`, path: file})
   ),
   output: {
-    path: resolve('dist/server'),
+    path: SERVER_BUILD_OUTPUT,
     filename: '[name].js',
     chunkFilename: '[name].js',
     libraryTarget: 'commonjs2'
