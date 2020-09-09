@@ -55,6 +55,7 @@ exports.assetsLoaders = () => [FILE_IMAGE_RULES, FILE_MEDIA_RULES, FILE_FONT_RUL
   loader: 'url-loader',
   options: {
     limit: 1000,
+    emitFile: !isServer,
     name: exports.assetsPath('images/[hash:8].[ext]')
   }
 }));
