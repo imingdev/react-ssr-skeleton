@@ -8,7 +8,8 @@ const merge = require('webpack-merge').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
-const {GLOB_PAGES_PATTERN, CLIENT_BUILD_OUTPUT, CLIENT_MAIN_DIRECTORY} = require('./constants');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const {GLOB_PAGES_PATTERN, CLIENT_BUILD_OUTPUT, CLIENT_MAIN_DIRECTORY, CLIENT_STATIC_FILES_PATH} = require('./constants');
 const webpackBaseConfig = require('./webpack.base.config');
 const ClientBuildManifestPlugin = require('./plugins/client-build-manifest-plugin');
 const utils = require('./utils');
@@ -38,7 +39,12 @@ const webpackConfig = merge(webpackBaseConfig, {
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[contenthash:8].css'),
       chunkFilename: utils.assetsPath('css/[contenthash:8].css')
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: resolve(CLIENT_STATIC_FILES_PATH),
+      to: CLIENT_STATIC_FILES_PATH,
+      ignore: ['.*']
+    }])
   ]
 });
 
