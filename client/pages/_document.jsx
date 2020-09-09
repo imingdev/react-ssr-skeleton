@@ -10,12 +10,16 @@ const HeadScript = ({ scripts }) => (<>{scripts.map((js) => <script src={js} key
 const HeadStyle = ({ styles }) => (<>{styles.map((css) => <link href={css} key={css} rel="stylesheet" />)}</>);
 
 // store
-const BodyStore = ({ store }) => (
-  <script
-    // eslint-disable-next-line
-    dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__=${JSON.stringify(store)}`}}
-  />
-);
+const BodyStore = ({ store }) => {
+  if (!store) return null;
+
+  return (
+    <script
+      // eslint-disable-next-line
+      dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__=${JSON.stringify(store)}`}}
+    />
+  );
+};
 
 export default ({
   children, state, js, css
