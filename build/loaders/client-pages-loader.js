@@ -14,6 +14,8 @@ module.exports = function () {
     import AppMain from '${formatMainPath}';
     import AppPage from '${formatResPath}';
 
-    AppMain(AppPage);
+    setTimeout(function () {
+      AppMain(AppPage);
+    }, 0);
   `
 };
