@@ -6,7 +6,7 @@ const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const DotEnvWebpackPlugin = require('dotenv-webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const {styleLoaders, assetsLoaders} = require('./utils');
-const {CLIENT_DIRECTORY, SERVER_DIRECTORY} = require('./constants');
+const {CLIENT_DIRECTORY} = require('./constants');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const BUILD_ENV = process.env.BUILD_ENV;
@@ -29,12 +29,10 @@ const webpackConfig = {
       ...[{
         test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve(CLIENT_DIRECTORY), resolve(SERVER_DIRECTORY)]
+        enforce: 'pre'
       }, {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        include: [resolve(CLIENT_DIRECTORY), resolve(SERVER_DIRECTORY)]
+        loader: 'babel-loader'
       }]
     ]
   },

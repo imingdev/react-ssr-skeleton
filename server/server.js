@@ -1,25 +1,38 @@
-const path = require('path');
+const React = require('react');
+const { renderToString } = require('react-dom/server');
 const express = require('express');
-const React = require("react");
-const {renderToString} = require('react-dom/server');
-const generatePages = require('./generatePages');
+const {
+  staticDir, Document, App, pages
+} = require('./config');
 
-const resolve = (dir) => path.join(__dirname, '..', dir);
-const app = express();
-
-app.use('/static', express.static(resolve('dist/static')));
-
-const render = ({Document, App, Component, pageProps, js, css}) => {
+const render = ({
+  Component, store, js, css
+}) => {
   const content = renderToString(
-    React.createElement(Document, {js, css, state: pageProps},
-      React.createElement(App, {Component, pageProps})
-    )
+    React.createElement(Document, { store, js, css },
+      React.createElement(App, { Component, pageProps: store }))
   );
   return `<!DOCTYPE html>${content}`;
 };
 
-generatePages(app, ({Component, pageProps, js, css, res, App, Document}) => {
-  res.send(render({Document, App, Component, pageProps, js, css}))
+const app = express();
+
+app.use('/static', express.static(staticDir));
+
+pages.forEach((row) => {
+  const {
+    url, Component, getServerSideProps, js, css
+  } = row;
+
+  app.get(url, async (req, res) => {
+    let store;
+    const isFunction = Object.prototype.toString.call(getServerSideProps) === '[object Function]';
+    if (isFunction) store = await getServerSideProps({ req, res });
+
+    res.send(render({
+      Document, App, Component, store, js, css
+    }));
+  });
 });
 
 app.listen(8088, () => {

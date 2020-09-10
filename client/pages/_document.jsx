@@ -22,14 +22,14 @@ const BodyStore = ({ store }) => {
 };
 
 export default ({
-  children, state, js, css
+  children, store, js, css
 }) => (
   <html>
     <HeadScript scripts={js} />
     <HeadStyle styles={css} />
     <body>
       <div id="app-main">{children}</div>
-      <BodyStore store={state} />
+      <BodyStore store={store} />
     </body>
   </html>
 );
