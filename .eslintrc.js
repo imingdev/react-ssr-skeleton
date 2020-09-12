@@ -6,6 +6,7 @@ module.exports = {
     browser: true
   },
   extends: [
+    'eslint-config-egg',
     'airbnb'
   ],
   rules: {

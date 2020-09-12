@@ -12,7 +12,7 @@ export const getServerSideProps = () => new Promise((resolve) => {
 export default ({ nihao }) => (
   <div className="homePage">
     <p>
-      home
+      home2
       {nihao}
     </p>
     <img src={image} alt="logo" />

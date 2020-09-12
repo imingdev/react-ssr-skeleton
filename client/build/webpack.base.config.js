@@ -5,11 +5,11 @@ const path = require('path');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const DotEnvWebpackPlugin = require('dotenv-webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const {styleLoaders, assetsLoaders} = require('./utils');
-const {CLIENT_DIRECTORY} = require('./constants');
+const { styleLoaders, assetsLoaders } = require('./utils');
+const { SERVER_DIRECTORY } = require('./constants');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
-const BUILD_ENV = process.env.BUILD_ENV;
+const { BUILD_ENV } = process.env;
 
 const isClient = BUILD_ENV === 'client';
 const isProduction = NODE_ENV === 'production';
@@ -20,11 +20,15 @@ const webpackConfig = {
   mode: NODE_ENV,
   context: resolve('/'),
   output: {
+    path: SERVER_DIRECTORY,
     publicPath: '/'
   },
   module: {
     rules: [
-      ...styleLoaders({sourceMap: !isProduction, extract: isClient}),
+      ...styleLoaders({
+        sourceMap: !isProduction,
+        extract: isClient
+      }),
       ...assetsLoaders(),
       ...[{
         test: /\.(js|jsx)$/,
@@ -32,19 +36,22 @@ const webpackConfig = {
         enforce: 'pre'
       }, {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        query: {
+          compact: false
+        }
       }]
     ]
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': resolve(CLIENT_DIRECTORY),
-      assets: resolve(`${CLIENT_DIRECTORY}/assets`),
-      common: resolve(`${CLIENT_DIRECTORY}/common`),
-      pages: resolve(`${CLIENT_DIRECTORY}/pages`),
-      components: resolve(`${CLIENT_DIRECTORY}/components`),
-    },
+      '@': resolve('src'),
+      '@assets': resolve('src/assets'),
+      '@common': resolve('src/common'),
+      '@pages': resolve('src/pages'),
+      '@components': resolve('src/components')
+    }
   },
   plugins: [
     new DotEnvWebpackPlugin({
@@ -58,14 +65,7 @@ const webpackConfig = {
   performance: {
     hints: false
   },
-  stats: {
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false,
-    entrypoints: false
-  },
+  stats: false,
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
@@ -76,8 +76,8 @@ const webpackConfig = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    child_process: 'empty',
-  },
+    child_process: 'empty'
+  }
 };
 
 if (isProduction) {
@@ -92,7 +92,7 @@ if (isProduction) {
         compress: {
           drop_debugger: true,
           drop_console: true
-        },
+        }
       },
       sourceMap: false,
       parallel: true

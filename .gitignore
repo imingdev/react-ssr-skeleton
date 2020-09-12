@@ -1,3 +1,10 @@
+# egg ignore
+/logs
+/run
+/config/resource-manifest.json
+/app/pages
+/app/static
+
 # maven ignore
 target/
 
@@ -36,4 +43,3 @@ node_modules/
 dist/
 package-lock.json
 yarn.lock
-**/templates
