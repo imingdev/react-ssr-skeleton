@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {PAGES_DIRECTORY, CLIENT_STATIC_FILES_PATH, FILE_IMAGE_RULES, FILE_MEDIA_RULES, FILE_FONT_RULES} = require('./constants');
+const { PAGES_DIRECTORY, CLIENT_STATIC_FILES_PATH, FILE_IMAGE_RULES, FILE_MEDIA_RULES, FILE_FONT_RULES } = require('./constants');
 
 const BUILD_ENV = process.env.BUILD_ENV;
 
@@ -15,14 +15,14 @@ exports.cssLoaders = (options) => {
     loader: 'css-loader',
     options: {
       sourceMap: options.sourceMap
-    },
+    }
   };
 
   const postcssLoader = {
     loader: 'postcss-loader',
     options: {
       sourceMap: options.sourceMap
-    },
+    }
   };
 
   // generate loader string to be used with extract text plugin
@@ -32,7 +32,10 @@ exports.cssLoaders = (options) => {
     if (loader) {
       loaders.push({
         loader: `${loader}-loader`,
-        options: {...loaderOptions, sourceMap: options.sourceMap}
+        options: {
+          ...loaderOptions,
+          sourceMap: options.sourceMap
+        }
       });
     }
     if (options.extract) return [MiniCssExtractPlugin.loader].concat(loaders);
@@ -45,10 +48,10 @@ exports.cssLoaders = (options) => {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', {indentedSyntax: true}),
+    sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus'),
+    styl: generateLoaders('stylus')
   };
 };
 
@@ -71,7 +74,7 @@ exports.styleLoaders = (options) => {
     const loader = loaders[extension];
     output.push({
       test: new RegExp(`\\.${extension}$`),
-      use: isServer ? 'ignore-loader' : loader,
+      use: isServer ? 'ignore-loader' : loader
     });
   }
 
@@ -81,18 +84,21 @@ exports.styleLoaders = (options) => {
 // 格式化路径
 exports.formatFilePath = (_path) => {
   const sep = path.sep;
-  if (_path.includes(sep)) return _path.split(sep).filter(Boolean).join('/');
+  if (_path.includes(sep)) {
+    return _path.split(sep)
+      .filter(Boolean)
+      .join('/');
+  }
 
-  return _path
+  return _path;
 };
 
 // 格式化entry的名字
 exports.formatEntryName = (_name) => {
   const key = _name
-    .replace(new RegExp(`^${PAGES_DIRECTORY}`), '')
     .replace(new RegExp('/index$'), '');
 
-  return key || '/'
+  return key;
 };
 
 // 输出到资源
@@ -102,5 +108,5 @@ exports.formatOutputAssets = output => {
   return {
     source: () => out,
     size: () => out.length
-  }
+  };
 };

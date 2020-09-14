@@ -30,10 +30,12 @@ Thumbs.db
 **/tmp
 pom.xml.versionsBackup
 **/resources/static
+/server/pages
+/server/router/ssr.js
+/server/static
 
 # node ignore
 node_modules/
 dist/
 package-lock.json
 yarn.lock
-**/templates
