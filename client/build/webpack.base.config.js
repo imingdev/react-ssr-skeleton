@@ -48,7 +48,10 @@ const webpackConfig = {
       ...[{
         test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
-        enforce: 'pre'
+        enforce: 'pre',
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
       }, {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
@@ -80,14 +83,7 @@ const webpackConfig = {
   performance: {
     hints: false
   },
-  stats: {
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false,
-    entrypoints: false
-  },
+  stats: false,
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
