@@ -2,6 +2,7 @@ process.env.NODE_ENV = 'production';
 
 const path = require('path');
 const webpack = require('webpack');
+const consola = require('consola');
 const rm = require('rimraf');
 const webpackBaseConfig = require('./webpack.base.config');
 const webpackClientConfig = require('./webpack.client.config');
@@ -18,5 +19,5 @@ rmDir(pathJoin('static'));
 
 webpack([webpackClientConfig, webpackServerConfig], err => {
   if (err) throw err;
-  console.info('  Build complete.\n');
+  consola.success('Build complete.');
 });

@@ -5,12 +5,9 @@ const path = require('path');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const DotEnvWebpackPlugin = require('dotenv-webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const { styleLoaders, assetsLoaders, formatEntryName } = require('./utils');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
-const { BUILD_ENV } = process.env;
 
-const isClient = BUILD_ENV === 'client';
 const isProduction = NODE_ENV === 'production';
 
 const resolve = (dir) => path.join(__dirname, '..', dir);
@@ -18,48 +15,25 @@ const resolve = (dir) => path.join(__dirname, '..', dir);
 const webpackConfig = {
   mode: NODE_ENV,
   context: resolve('/'),
-  entry: WebpackDynamicEntryPlugin.getEntry({
-    pattern: [
-      resolve('src/pages/**/index.{js,jsx}'),
-      !isClient && resolve('src/pages/_document.{js,jsx}')
-    ].filter(Boolean),
-    generate: entry => {
-      const loaderPath = path.join(__dirname, './loaders/client-pages-loader');
-      return Object.assign.apply(Object, Object.keys(entry)
-        .map(name => {
-          const entryName = `pages/${formatEntryName(name)}`;
-          const entryFile = entry[name];
-          if (isClient) return { [entryName]: `${loaderPath}!${entryFile}` };
-          return { [entryName]: entryFile };
-        }));
-    }
-  }),
   output: {
     path: resolve('../server'),
     publicPath: '/'
   },
   module: {
-    rules: [
-      ...styleLoaders({
-        sourceMap: !isProduction,
-        extract: isClient
-      }),
-      ...assetsLoaders(),
-      ...[{
-        test: /\.(js|jsx)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      }, {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        query: {
-          compact: false
-        }
-      }]
-    ]
+    rules: [{
+      test: /\.(js|jsx)$/,
+      loader: 'eslint-loader',
+      enforce: 'pre',
+      options: {
+        formatter: require('eslint-friendly-formatter')
+      }
+    }, {
+      test: /\.(js|jsx)$/,
+      loader: 'babel-loader',
+      options: {
+        compact: false
+      }
+    }]
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

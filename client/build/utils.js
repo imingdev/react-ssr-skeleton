@@ -1,15 +1,9 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { PAGES_DIRECTORY, CLIENT_STATIC_FILES_PATH, FILE_IMAGE_RULES, FILE_MEDIA_RULES, FILE_FONT_RULES } = require('./constants');
 
-const BUILD_ENV = process.env.BUILD_ENV;
+exports.assetsPath = _path => path.posix.join('static', _path);
 
-const isServer = BUILD_ENV === 'server';
-
-exports.assetsPath = _path => path.posix.join(CLIENT_STATIC_FILES_PATH, _path);
-
-exports.cssLoaders = (options) => {
-  options = options || {};
+exports.cssLoaders = (options = {}) => {
 
   const cssLoader = {
     loader: 'css-loader',
@@ -55,18 +49,38 @@ exports.cssLoaders = (options) => {
   };
 };
 
-exports.assetsLoaders = () => [FILE_IMAGE_RULES, FILE_MEDIA_RULES, FILE_FONT_RULES].map(regArr => ({
-  test: new RegExp(`\\.(${regArr.join('|')})$`),
-  loader: 'url-loader',
-  options: {
-    limit: 1000,
-    emitFile: !isServer,
-    name: exports.assetsPath('images/[hash:8].[ext]')
-  }
-}));
+exports.assetsLoaders = ({ emitFile = true } = {}) => {
+  const loader = 'url-loader';
+
+  return [{
+    test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+    loader,
+    options: {
+      limit: 1000,
+      emitFile,
+      name: exports.assetsPath('images/[hash:8].[ext]')
+    }
+  }, {
+    test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+    loader,
+    options: {
+      limit: 1000,
+      emitFile,
+      name: exports.assetsPath('media/[hash:8].[ext]')
+    }
+  }, {
+    test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+    loader,
+    options: {
+      limit: 1000,
+      emitFile,
+      name: exports.assetsPath('fonts/[hash:8].[ext]')
+    }
+  }];
+};
 
 // Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = (options) => {
+exports.styleLoaders = (options = {}) => {
   const output = [];
   const loaders = exports.cssLoaders(options);
 
@@ -74,7 +88,7 @@ exports.styleLoaders = (options) => {
     const loader = loaders[extension];
     output.push({
       test: new RegExp(`\\.${extension}$`),
-      use: isServer ? 'ignore-loader' : loader
+      use: options.ignore ? ['ignore-loader'] : loader
     });
   }
 
@@ -110,3 +124,4 @@ exports.formatOutputAssets = output => {
     size: () => out.length
   };
 };
+;

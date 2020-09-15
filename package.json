@@ -7,8 +7,8 @@
     "build:server": "node_modules/.bin/webpack --inline --config client/build/webpack.server.config.js",
     "build": "node client/build/build.js",
     "build:dev": "cross-env NODE_ENV=development npm run build:client && cross-env NODE_ENV=development npm run build:server",
-    "dev": "cross-env NODE_ENV=development node ./server/server.js",
-    "start": "cross-env NODE_ENV=production node ./server/app.js"
+    "dev": "cross-env NODE_ENV=development nodemon server/app.js --watch server",
+    "start": "cross-env NODE_ENV=production node server/app.js"
   },
   "dependencies": {
     "cross-env": "^7.0.2",
@@ -41,6 +41,7 @@
     "js-beautify": "^1.13.0",
     "mini-css-extract-plugin": "^0.11.0",
     "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
