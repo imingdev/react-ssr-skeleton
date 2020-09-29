@@ -1,6 +1,8 @@
-const path = require('path');
+const { join } = require('path');
 
-const resolve = (dir) => path.join(__dirname, '..', dir);
+const resolve = (dir) => join(__dirname, '..', dir);
+const pagesDir = resolve('src/pages');
+
 module.exports = {
   // Paths
   clientDistPath: resolve('../server/app'),
@@ -8,10 +10,12 @@ module.exports = {
   assetsSubDirectory: 'static',
   assetsPublicPath: '/',
   build: {
-    pattern: resolve('src/pages/**/index.{js,jsx}')
+    pattern: join(pagesDir, '**/index.{js,jsx}'),
+    pages: pagesDir
   },
   dev: {
     port: 8898,
-    host: 'localhost'
+    host: 'localhost',
+    proxy: {}
   }
 };

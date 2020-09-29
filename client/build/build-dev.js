@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const globBase = require('glob-base');
 const config = require('./config');
 const webpackClientConfig = require('./webpack.client.config');
 const webpackServerConfig = require('./webpack.server.config');
@@ -12,15 +11,19 @@ const clientCompiler = webpack(webpackClientConfig);
 // Client Build, watch is started by webpack-dev-server
 new WebpackDevServer(clientCompiler, {
   publicPath: webpackClientConfig.output.publicPath,
+  clientLogLevel: 'warning',
+  contentBase: false,
+  compress: true,
   quiet: true,
   hot: true,
   port: config.dev.port,
   host: config.dev.host,
-  disableHostCheck: true
+  disableHostCheck: true,
+  proxy: config.dev.proxy
 })
   .listen(config.dev.port, config.dev.host);
 
 // Server, build and watch for changes
-serverCompiler.watch(globBase(config.build.pattern).base, err => {
+serverCompiler.watch(config.build.pages, err => {
   if (err) throw err;
 });
