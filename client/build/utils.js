@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const del = require('del');
 const config = require('./config');
 
 const resolve = (dir) => path.join(__dirname, '..', dir);
@@ -112,3 +113,12 @@ exports.formatFilePath = (_path) => {
 // format webpack entry name
 exports.formatEntryName = (_name) => exports.formatFilePath(_name)
   .replace(new RegExp('/index$'), '');
+
+// delete build dir
+exports.deleteBuildFile = () => del([
+  resolve('../server/app/static'),
+  resolve('../server/app/views'),
+  resolve('../server/config/manifest.json')
+], {
+  force: true
+});
