@@ -1,5 +1,6 @@
 {
   "keys": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+  "multipleStatic": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
   "view": {
     "root": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
     "defaultViewEngine": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
@@ -171,6 +172,7 @@
     },
     "dependencies": {
       "egg": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-multiple-static": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
       "egg-scripts": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
       "react": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
       "react-dom": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"

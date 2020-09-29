@@ -105,6 +105,7 @@
         "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\locales",
         "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-static\\config\\locales",
         "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-view\\config\\locales",
+        "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multiple-static\\config\\locales",
         "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\locales",
         "E:\\projects\\react-ssr-skeleton\\server\\config\\locales"
       ],
@@ -182,6 +183,16 @@
         ".js": "react"
       }
     },
+    "multipleStatic": [
+      {
+        "prefix": "/public\\",
+        "dir": "E:\\projects\\react-ssr-skeleton\\server\\app\\public"
+      },
+      {
+        "prefix": "/static\\",
+        "dir": "E:\\projects\\react-ssr-skeleton\\server\\app\\static"
+      }
+    ],
     "env": "local",
     "name": "react-ssr-server",
     "keys": "<String len: 16>",
@@ -201,6 +212,7 @@
       },
       "dependencies": {
         "egg": "^2.28.0",
+        "egg-multiple-static": "^0.2.1",
         "egg-scripts": "^2.13.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1"
@@ -290,6 +302,7 @@
       "siteFile",
       "notfound",
       "static",
+      "multipleStatic",
       "bodyParser",
       "overrideMethod",
       "session",
@@ -479,6 +492,17 @@
       "from": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\plugin.js",
       "path": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-view",
       "version": "2.1.2"
+    },
+    "multipleStatic": {
+      "enable": true,
+      "package": "egg-multiple-static",
+      "name": "multipleStatic",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "E:\\projects\\react-ssr-skeleton\\server\\config\\plugin.js",
+      "path": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multiple-static",
+      "version": "0.2.1"
     }
   }
 }
