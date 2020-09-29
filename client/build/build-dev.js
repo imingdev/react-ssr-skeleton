@@ -13,6 +13,7 @@ const clientCompiler = webpack(webpackClientConfig);
 new WebpackDevServer(clientCompiler, {
   publicPath: webpackClientConfig.output.publicPath,
   quiet: true,
+  hot: true,
   port: config.dev.port,
   host: config.dev.host,
   disableHostCheck: true

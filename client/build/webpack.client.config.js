@@ -8,6 +8,8 @@ const merge = require('webpack-merge').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const WebpackBarPlugin = require('webpackbar');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const ip = require('ip');
 const ClientManifestPlugin = require('./plugins/client-manifest-plugin');
 const webpackBaseConfig = require('./webpack.base.config');
 const { styleLoaders, assetsLoaders, assetsPath } = require('./utils');
@@ -53,5 +55,23 @@ const webpackConfig = merge(webpackBaseConfig, {
     })
   ]
 });
+
+if (isDevelopment) {
+  webpackConfig.plugins.push(
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: [
+          'App running at:',
+          `- Local:   http://localhost:${config.dev.port}`,
+          `- Network: http://${ip.address()}:${config.dev.port}`
+        ],
+        notes: [
+          'Note that the development build is not optimized.',
+          'To create a production build, run npm run build:prod.'
+        ]
+      }
+    })
+  );
+}
 
 module.exports = webpackConfig;

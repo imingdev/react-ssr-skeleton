@@ -14,6 +14,8 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "egg-bin": "^4.15.0"
+    "egg-bin": "^4.15.0",
+    "eslint": "^7.10.0",
+    "eslint-config-egg": "^8.1.2"
   }
 }

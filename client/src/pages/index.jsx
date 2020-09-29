@@ -1,5 +1,10 @@
 import React from 'react';
 
-const HomePage = () => (<div className="indexPage">indexPage2</div>);
+const HomePage = ({ nihao }) => (
+  <div className="indexPage">
+    indexPage
+    {nihao}
+  </div>
+);
 
 export default HomePage;

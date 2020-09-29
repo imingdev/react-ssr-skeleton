@@ -1,0 +1,5 @@
+app/static
+app/views
+config/manifest.json
+logs
+run

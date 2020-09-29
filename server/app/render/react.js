@@ -29,7 +29,7 @@ module.exports = class ReactRender {
   }
 
   normalizeLocals(locals = {}) {
-    ['ctx', 'request', 'helper'].forEach((key) => {
+    [ 'ctx', 'request', 'helper' ].forEach(key => {
       Object.defineProperty(locals, key, { enumerable: false });
     });
     return locals;
@@ -58,7 +58,7 @@ module.exports = class ReactRender {
       Component,
       pageScripts: currentManifest.scripts || [],
       pageStyles: currentManifest.styles || [],
-      store: normalizeLocals(locals)
+      store: normalizeLocals(locals),
     }));
     const htmlStr = `${doctype}${content}`;
 

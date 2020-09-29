@@ -1,8 +1,16 @@
 import React from 'react';
 
 // script
-const HeadScript = ({ pageScripts }) => (<>{pageScripts.map((script) => <script src={script}
-                                                                                key={script}/>)}</>);
+const HeadScript = ({ pageScripts }) => (
+  <>
+    {pageScripts.map((script) => (
+      <script
+        src={script}
+        key={script}
+      />
+    ))}
+  </>
+);
 
 // style
 const HeadStyle = ({ pageStyles }) => (
@@ -29,17 +37,19 @@ const BodyStore = ({ store }) => {
   );
 };
 
-export default ({ App, Component, pageScripts, pageStyles, store }) => (
+export default ({
+  App, Component, pageScripts, pageStyles, store
+}) => (
   <html>
-  <head>
-    <HeadScript pageScripts={pageScripts}/>
-    <HeadStyle pageStyles={pageStyles}/>
-  </head>
-  <body>
-  <div id="app-main">
-    <App Component={Component} pageProps={store}/>
-  </div>
-  <BodyStore store={store}/>
-  </body>
+    <head>
+      <HeadScript pageScripts={pageScripts} />
+      <HeadStyle pageStyles={pageStyles} />
+    </head>
+    <body>
+      <div id="app-main">
+        <App Component={Component} pageProps={store} />
+      </div>
+      <BodyStore store={store} />
+    </body>
   </html>
 );

@@ -9,10 +9,10 @@ module.exports = app => {
 
   config.multipleStatic = [{
     prefix: '/public',
-    dir: resolve('app/public')
+    dir: resolve('app/public'),
   }, {
     prefix: '/static',
-    dir: resolve('app/static')
+    dir: resolve('app/static'),
   }];
 
   config.view = {
@@ -20,8 +20,8 @@ module.exports = app => {
     defaultViewEngine: 'react',
     defaultExtension: '.js',
     mapping: {
-      '.js': 'react'
-    }
+      '.js': 'react',
+    },
   };
 
   config.react = {
@@ -39,8 +39,8 @@ module.exports = app => {
       keepClosingSlash: true,
       minifyJS: true,
       minifyCSS: true,
-      minifyURLs: true
-    }
+      minifyURLs: true,
+    },
   };
 
   return config;
