@@ -13,6 +13,7 @@ module.exports = class ReactRender {
 
     const { app } = ctx;
     const config = app.config.react;
+    this.app = app;
     this.ctx = ctx;
     this.config = config;
     this.minify = config.minify || {};
@@ -47,7 +48,7 @@ module.exports = class ReactRender {
   }
 
   renderReactToString(Component, locals) {
-    const { ctx, normalizeLocals, minify, manifest, doctype, Document, App } = this;
+    const { app, ctx, normalizeLocals, minify, manifest, doctype, Document, App } = this;
     const { url } = ctx.request;
 
     const currentManifest = manifest[url];
@@ -61,7 +62,7 @@ module.exports = class ReactRender {
     }));
     const htmlStr = `${doctype}${content}`;
 
-    if (ctx.app.env === 'local') return htmlStr;
+    if (app.config.env === 'local') return htmlStr;
     return htmlMinify(`${doctype}${content}`, minify);
   }
 
