@@ -17,8 +17,6 @@ module.exports = function () {
     import AppMain from '${mainComponentPath}';
     import AppPage from '${currentComponentPath}';
 
-    window.onload=function(){
-      AppMain(App, AppPage);
-    };
+    AppMain(App, AppPage);
   `;
 };

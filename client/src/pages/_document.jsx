@@ -7,6 +7,8 @@ const HeadScript = ({ pageScripts }) => (
       <script
         src={script}
         key={script}
+        type="text/javascript"
+        defer
       />
     ))}
   </>
@@ -31,6 +33,7 @@ const BodyStore = ({ store }) => {
 
   return (
     <script
+      type="text/javascript"
       // eslint-disable-next-line
       dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__=${JSON.stringify(store)}` }}
     />
@@ -42,7 +45,6 @@ export default ({
 }) => (
   <html>
     <head>
-      <HeadScript pageScripts={pageScripts} />
       <HeadStyle pageStyles={pageStyles} />
     </head>
     <body>
@@ -50,6 +52,7 @@ export default ({
         <App Component={Component} pageProps={store} />
       </div>
       <BodyStore store={store} />
+      <HeadScript pageScripts={pageScripts} />
     </body>
   </html>
 );
