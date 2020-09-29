@@ -7,6 +7,14 @@ module.exports = app => {
 
   config.keys = app.name;
 
+  config.multipleStatic = [{
+    prefix: '/public',
+    dir: resolve('app/public')
+  }, {
+    prefix: '/static',
+    dir: resolve('app/static')
+  }];
+
   config.view = {
     root: resolve('app/views'),
     defaultViewEngine: 'react',

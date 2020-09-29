@@ -30,6 +30,10 @@ Thumbs.db
 **/tmp
 pom.xml.versionsBackup
 
+# egg ignore
+run
+logs
+
 # node ignore
 node_modules/
 dist/
