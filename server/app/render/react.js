@@ -1,6 +1,7 @@
 /**
  * @intro: 用于react渲染.
  */
+const htmlMinify = require('html-minifier-terser').minify;
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
@@ -14,6 +15,7 @@ module.exports = class ReactRender {
     const config = app.config.react;
     this.ctx = ctx;
     this.config = config;
+    this.minify = config.minify || {};
     this.doctype = config.doctype;
     this.manifest = this.formatManifest(config.manifest);
     this.Document = this.requireReactElement(config.document);
@@ -45,7 +47,7 @@ module.exports = class ReactRender {
   }
 
   renderReactToString(Component, locals) {
-    const { ctx, normalizeLocals, manifest, doctype, Document, App } = this;
+    const { ctx, normalizeLocals, minify, manifest, doctype, Document, App } = this;
     const { url } = ctx.request;
 
     const currentManifest = manifest[url];
@@ -57,8 +59,10 @@ module.exports = class ReactRender {
       pageStyles: currentManifest.styles || [],
       store: normalizeLocals(locals)
     }));
+    const htmlStr = `${doctype}${content}`;
 
-    return `${doctype}${content}`;
+    if (ctx.app.env === 'local') return htmlStr;
+    return htmlMinify(`${doctype}${content}`, minify);
   }
 
   render(name, locals) {

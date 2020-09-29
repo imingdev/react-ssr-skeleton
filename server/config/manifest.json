@@ -1,19 +1,19 @@
 {
   "about/index": {
     "scripts": [
-      "/static/js/9dffa604.js"
+      "http://localhost:8898/about/index.js"
     ],
     "styles": []
   },
   "home/index": {
     "scripts": [
-      "/static/js/32fb2c59.js"
+      "http://localhost:8898/home/index.js"
     ],
     "styles": []
   },
   "index": {
     "scripts": [
-      "/static/js/327cce0a.js"
+      "http://localhost:8898/index.js"
     ],
     "styles": []
   }

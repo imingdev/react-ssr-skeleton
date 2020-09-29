@@ -28,7 +28,19 @@ module.exports = app => {
     doctype: '<!doctype html>',
     manifest: resolve('config/manifest.json'),
     document: resolve('app/views/_document.js'),
-    app: resolve('app/views/_app.js')
+    app: resolve('app/views/_app.js'),
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeRedundantAttributes: true,
+      useShortDoctype: true,
+      removeEmptyAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      keepClosingSlash: true,
+      minifyJS: true,
+      minifyCSS: true,
+      minifyURLs: true
+    }
   };
 
   return config;
