@@ -31,8 +31,8 @@ Thumbs.db
 pom.xml.versionsBackup
 
 # egg ignore
-server/run
-server/logs
+run
+logs
 
 # node ignore
 node_modules/
