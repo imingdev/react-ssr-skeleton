@@ -20,6 +20,7 @@ const isDevelopment = NODE_ENV === 'development';
 
 const webpackConfig = merge(webpackBaseConfig, {
   name: 'client',
+  devtool: isDevelopment ? 'source-map' : false,
   entry: WebpackDynamicEntryPlugin.getEntry({
     pattern: config.build.pattern,
     generate: (entry) => Object.assign.apply(Object, Object.keys(entry)
