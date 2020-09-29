@@ -1,7 +1,10 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const config = require('./config');
 
-exports.assetsPath = _path => path.posix.join('static', _path);
+const resolve = (dir) => path.join(__dirname, '..', dir);
+
+exports.assetsPath = (_path) => path.posix.join(config.assetsSubDirectory, _path);
 
 exports.cssLoaders = (options = {}) => {
 
@@ -20,7 +23,7 @@ exports.cssLoaders = (options = {}) => {
   };
 
   // generate loader string to be used with extract text plugin
-  generateLoaders = (loader, loaderOptions) => {
+  const generateLoaders = (loader, loaderOptions) => {
     const loaders = [cssLoader, postcssLoader];
 
     if (loader) {
@@ -49,6 +52,21 @@ exports.cssLoaders = (options = {}) => {
   };
 };
 
+exports.styleLoaders = (options = {}) => {
+  const output = [];
+  const loaders = exports.cssLoaders(options);
+
+  for (const extension in loaders) {
+    const loader = loaders[extension];
+    output.push({
+      test: new RegExp(`\\.${extension}$`),
+      use: options.useIgnore ? [resolve('loaders/ignore-loader.js')] : loader
+    });
+  }
+
+  return output;
+};
+
 exports.assetsLoaders = ({ emitFile = true } = {}) => {
   const loader = 'url-loader';
 
@@ -66,7 +84,7 @@ exports.assetsLoaders = ({ emitFile = true } = {}) => {
     options: {
       limit: 1000,
       emitFile,
-      name: exports.assetsPath('media/[hash:8].[ext]')
+      name: exports.assetsPath('images/[hash:8].[ext]')
     }
   }, {
     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -79,23 +97,7 @@ exports.assetsLoaders = ({ emitFile = true } = {}) => {
   }];
 };
 
-// Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = (options = {}) => {
-  const output = [];
-  const loaders = exports.cssLoaders(options);
-
-  for (const extension in loaders) {
-    const loader = loaders[extension];
-    output.push({
-      test: new RegExp(`\\.${extension}$`),
-      use: options.ignore ? ['ignore-loader'] : loader
-    });
-  }
-
-  return output;
-};
-
-// 格式化路径
+// format file path
 exports.formatFilePath = (_path) => {
   const sep = path.sep;
   if (_path.includes(sep)) {
@@ -107,21 +109,6 @@ exports.formatFilePath = (_path) => {
   return _path;
 };
 
-// 格式化entry的名字
-exports.formatEntryName = (_name) => {
-  const key = _name
-    .replace(new RegExp('/index$'), '');
-
-  return key;
-};
-
-// 输出到资源
-exports.formatOutputAssets = output => {
-  const out = JSON.stringify(output, null, 2);
-
-  return {
-    source: () => out,
-    size: () => out.length
-  };
-};
-;
+// format webpack entry name
+exports.formatEntryName = (_name) => exports.formatFilePath(_name)
+  .replace(new RegExp('/index$'), '');

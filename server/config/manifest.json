@@ -1,0 +1,20 @@
+{
+  "about/index": {
+    "scripts": [
+      "/static/js/9dffa604.js"
+    ],
+    "styles": []
+  },
+  "home/index": {
+    "scripts": [
+      "/static/js/32fb2c59.js"
+    ],
+    "styles": []
+  },
+  "index": {
+    "scripts": [
+      "/static/js/327cce0a.js"
+    ],
+    "styles": []
+  }
+}

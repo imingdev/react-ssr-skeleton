@@ -29,10 +29,6 @@ Thumbs.db
 # project ignore
 **/tmp
 pom.xml.versionsBackup
-**/resources/static
-/server/pages
-/server/router/ssr.js
-/server/static
 
 # node ignore
 node_modules/

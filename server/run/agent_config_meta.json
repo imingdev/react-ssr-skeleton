@@ -1,0 +1,272 @@
+{
+  "keys": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+  "view": {
+    "root": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+    "defaultViewEngine": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+    "defaultExtension": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+    "mapping": {
+      ".js": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js"
+    },
+    "cache": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-view\\config\\config.local.js"
+  },
+  "react": {
+    "doctype": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+    "manifest": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+    "document": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js",
+    "app": "E:\\projects\\react-ssr-skeleton\\server\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "type": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideIgnore": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "env": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "name": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "version": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "author": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "dev": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "dependencies": {
+      "egg": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "react": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "react-dom": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "strict": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "depth": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "env": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "level": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "logging": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "port": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "E:\\projects\\react-ssr-skeleton\\server\\node_modules\\egg\\config\\config.default.js"
+}

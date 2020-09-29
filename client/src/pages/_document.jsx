@@ -1,19 +1,16 @@
-/**
- * @intro: document.
- */
 import React from 'react';
-import App from './_app';
 
 // script
-const HeadScript = ({ scripts }) => (<>{scripts.map((js) => <script src={js} key={js} />)}</>);
+const HeadScript = ({ pageScripts }) => (<>{pageScripts.map((script) => <script src={script}
+                                                                                key={script}/>)}</>);
 
 // style
-const HeadStyle = ({ styles }) => (
+const HeadStyle = ({ pageStyles }) => (
   <>
-    {styles.map((css) => (
+    {pageStyles.map((style) => (
       <link
-        href={css}
-        key={css}
+        href={style}
+        key={style}
         rel="stylesheet"
       />
     ))}
@@ -32,17 +29,17 @@ const BodyStore = ({ store }) => {
   );
 };
 
-export default ({
-  Component, store, js, css
-}) => (
+export default ({ App, Component, pageScripts, pageStyles, store }) => (
   <html>
-    <HeadScript scripts={js} />
-    <HeadStyle styles={css} />
-    <body>
-      <div id="app-main">
-        <App Component={Component} pageProps={store} />
-      </div>
-      <BodyStore store={store} />
-    </body>
+  <head>
+    <HeadScript pageScripts={pageScripts}/>
+    <HeadStyle pageStyles={pageStyles}/>
+  </head>
+  <body>
+  <div id="app-main">
+    <App Component={Component} pageProps={store}/>
+  </div>
+  <BodyStore store={store}/>
+  </body>
   </html>
 );

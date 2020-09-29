@@ -1,0 +1,17 @@
+{
+  "name": "react-ssr-server",
+  "version": "1.0.0",
+  "author": "mingdev <mingdev@163.com>",
+  "scripts": {
+    "dev": "egg-bin dev"
+  },
+  "dependencies": {
+    "egg": "^2.28.0",
+    "egg-scripts": "^2.13.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.15.0"
+  }
+}

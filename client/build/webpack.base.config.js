@@ -4,32 +4,27 @@
 const path = require('path');
 const WebpackDynamicEntryPlugin = require('webpack-dynamic-entry-plugin');
 const DotEnvWebpackPlugin = require('dotenv-webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const config = require('./config');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-const isProduction = NODE_ENV === 'production';
-
 const resolve = (dir) => path.join(__dirname, '..', dir);
 
-const webpackConfig = {
+module.exports = {
   mode: NODE_ENV,
   context: resolve('/'),
   output: {
-    path: resolve('../server'),
-    publicPath: '/'
+    publicPath: config.assetsPublicPath
   },
   module: {
     rules: [{
       test: /\.(js|jsx)$/,
-      loader: 'eslint-loader',
-      enforce: 'pre',
-      options: {
-        formatter: require('eslint-friendly-formatter')
-      }
-    }, {
-      test: /\.(js|jsx)$/,
       loader: 'babel-loader',
+      include: [
+        resolve('build/loaders'),
+        resolve('src'),
+        resolve('node_modules/webpack-dev-server/client')
+      ],
       options: {
         compact: false
       }
@@ -38,11 +33,7 @@ const webpackConfig = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': resolve('src'),
-      assets: resolve('src/assets'),
-      common: resolve('src/common'),
-      pages: resolve('src/pages'),
-      components: resolve('src/components')
+      '@': resolve('src')
     }
   },
   plugins: [
@@ -57,7 +48,14 @@ const webpackConfig = {
   performance: {
     hints: false
   },
-  stats: false,
+  stats: {
+    colors: true,
+    modules: false,
+    children: false,
+    chunks: false,
+    chunkModules: false,
+    entrypoints: false
+  },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
@@ -71,27 +69,3 @@ const webpackConfig = {
     child_process: 'empty'
   }
 };
-
-if (isProduction) {
-  const optimization = webpackConfig.optimization || {};
-  const minimizer = optimization.minimizer || [];
-  minimizer.push(
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        output: {
-          comments: false
-        },
-        compress: {
-          drop_debugger: true,
-          drop_console: true
-        }
-      },
-      sourceMap: false,
-      parallel: true
-    })
-  );
-  optimization.minimizer = minimizer;
-  webpackConfig.optimization = optimization;
-}
-
-module.exports = webpackConfig;
