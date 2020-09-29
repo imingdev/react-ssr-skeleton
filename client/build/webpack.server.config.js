@@ -19,7 +19,7 @@ const webpackConfig = merge(webpackBaseConfig, {
   target: 'node',
   entry: WebpackDynamicEntryPlugin.getEntry({
     pattern: [
-      resolve('src/pages/**/index.{js,jsx}'),
+      config.build.pattern,
       resolve('src/pages/**/{_document,_app}.{js,jsx}')
     ],
     generate: entry => Object.assign.apply(Object, Object.keys(entry)
