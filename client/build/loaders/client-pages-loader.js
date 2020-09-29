@@ -17,8 +17,8 @@ module.exports = function () {
     import AppMain from '${mainComponentPath}';
     import AppPage from '${currentComponentPath}';
 
-    setTimeout(function () {
+    window.onload=function(){
       AppMain(App, AppPage);
-    }, 0);
+    };
   `;
 };
